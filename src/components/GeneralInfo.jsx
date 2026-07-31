@@ -1,4 +1,4 @@
-function GeneralInfo({ data }) {
+function GeneralInfo({ data, setGeneralInfo }) {
   return (
     <>
       <p>{data.name}</p>
