@@ -9,9 +9,20 @@ function GeneralInfo({ data, setGeneralInfo }) {
 
   return (
     <>
-      <p>{data.name}</p>
-      <p>{data.email}</p>
-      <p>{data.phone}</p>
+      {isEditing ? (
+        <>
+          <input type='text' name='name' defaultValue={data.name} />
+          <input type='text' name='email' defaultValue={data.email} />
+          <input type='text' name='phone' defaultValue={data.phone} />
+        </>
+      ) : (
+        <>
+          <p>{data.name}</p>
+          <p>{data.email}</p>
+          <p>{data.phone}</p>
+        </>
+      )}
+
       <button onClick={handleToggle}>{isEditing ? 'Submit' : 'Edit'}</button>
     </>
   );
