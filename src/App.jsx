@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import GeneralInfo from './components/GeneralInfo';
+import EducationSection from './components/EducationSection';
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState({
@@ -13,6 +14,7 @@ function App() {
     <>
       <h1>Project CV Application</h1>
       <GeneralInfo data={generalInfo} setGeneralInfo={setGeneralInfo} />
+      <EducationSection />
     </>
   );
 }
