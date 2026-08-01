@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
-function EducationSection() {
+function EducationSection({ educationList }) {
+  console.log(educationList);
+
   return (
     <>
       <h2>Education Section</h2>
