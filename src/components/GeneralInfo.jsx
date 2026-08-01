@@ -2,18 +2,44 @@ import { useState } from 'react';
 
 function GeneralInfo({ data, setGeneralInfo }) {
   const [isEditing, setIsEditing] = useState(false);
+  const [formData, setFormData] = useState({ ...data });
 
   const handleToggle = () => {
+    if (isEditing) {
+      setGeneralInfo(formData);
+    }
     setIsEditing((prevState) => !prevState);
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
     <>
       {isEditing ? (
         <>
-          <input type='text' name='name' defaultValue={data.name} />
-          <input type='text' name='email' defaultValue={data.email} />
-          <input type='text' name='phone' defaultValue={data.phone} />
+          <input
+            type='text'
+            name='name'
+            value={formData.name}
+            onChange={handleChange}
+          />
+          <input
+            type='text'
+            name='email'
+            value={formData.email}
+            onChange={handleChange}
+          />
+          <input
+            type='text'
+            name='phone'
+            value={formData.phone}
+            onChange={handleChange}
+          />
         </>
       ) : (
         <>
