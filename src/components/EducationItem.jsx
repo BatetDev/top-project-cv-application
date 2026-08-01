@@ -1,3 +1,10 @@
+/**
+ * Displays and edits a single education entry.
+ *
+ * @param {Object}   data   - Education entry { id, school, title, date }
+ * @param {Function} onSave - Called with the updated entry on submit
+ */
+
 import { useState } from 'react';
 
 function EducationItem({ data, onSave }) {

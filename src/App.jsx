@@ -19,11 +19,24 @@ function App() {
     },
   ]);
 
+  const handleEducationUpdate = (updatedEntry) => {
+    const updatedList = educationList.map((entry) => {
+      if (entry.id === updatedEntry.id) {
+        return updatedEntry;
+      }
+      return entry;
+    });
+    setEducationList(updatedList);
+  };
+
   return (
     <>
       <h1>Project CV Application</h1>
       <GeneralInfo data={generalInfo} setGeneralInfo={setGeneralInfo} />
-      <EducationSection educationList={educationList} />
+      <EducationSection
+        educationList={educationList}
+        onUpdate={handleEducationUpdate}
+      />
     </>
   );
 }

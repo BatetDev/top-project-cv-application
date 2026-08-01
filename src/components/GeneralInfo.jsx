@@ -1,3 +1,10 @@
+/**
+ * Section for displaying and editing general CV information.
+ *
+ * @param {Object}   data           - The current general info { name, email, phone }
+ * @param {Function} setGeneralInfo - Updates generalInfo state in App
+ */
+
 import { useState } from 'react';
 
 function GeneralInfo({ data, setGeneralInfo }) {
