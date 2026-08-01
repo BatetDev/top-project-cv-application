@@ -3,12 +3,15 @@
  *
  * @param {Object}   data   - Education entry { id, school, title, date }
  * @param {Function} onSave - Called with the updated entry on submit
+ * @param {Function} onDelete - Called with the entry's id to remove it
  */
 
 import { useState } from 'react';
 
-function EducationItem({ data, onSave }) {
-  const [isEditing, setIsEditing] = useState(false);
+function EducationItem({ data, onSave, onDelete }) {
+  const [isEditing, setIsEditing] = useState(
+    data.school === '' && data.title === '' && data.date === '',
+  );
   const [formData, setFormData] = useState({ ...data });
 
   const handleToggle = () => {
@@ -57,6 +60,7 @@ function EducationItem({ data, onSave }) {
       )}
 
       <button onClick={handleToggle}>{isEditing ? 'Submit' : 'Edit'}</button>
+      <button onClick={() => onDelete(data.id)}>Delete</button>
     </>
   );
 }

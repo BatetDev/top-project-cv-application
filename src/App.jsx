@@ -29,6 +29,20 @@ function App() {
     setEducationList(updatedList);
   };
 
+  const handleEducationAdd = () => {
+    const newEntry = {
+      id: crypto.randomUUID(),
+      school: '',
+      title: '',
+      date: '',
+    };
+    setEducationList([...educationList, newEntry]);
+  };
+
+  const handleEducationDelete = (id) => {
+    setEducationList(educationList.filter((entry) => entry.id !== id));
+  };
+
   return (
     <>
       <h1>Project CV Application</h1>
@@ -36,6 +50,8 @@ function App() {
       <EducationSection
         educationList={educationList}
         onUpdate={handleEducationUpdate}
+        onAdd={handleEducationAdd}
+        onDelete={handleEducationDelete}
       />
     </>
   );

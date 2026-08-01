@@ -8,13 +8,19 @@
 import { useState } from 'react';
 import EducationItem from './EducationItem';
 
-function EducationSection({ educationList, onUpdate }) {
+function EducationSection({ educationList, onUpdate, onAdd, onDelete }) {
   return (
     <>
       <h2>Education Section</h2>
       {educationList.map((entry) => (
-        <EducationItem key={entry.id} data={entry} onSave={onUpdate} />
+        <EducationItem
+          key={entry.id}
+          data={entry}
+          onSave={onUpdate}
+          onDelete={onDelete}
+        />
       ))}
+      <button onClick={onAdd}>Add Education</button>
     </>
   );
 }
