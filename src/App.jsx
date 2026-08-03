@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import GeneralInfo from './components/GeneralInfo';
 import EducationSection from './components/EducationSection';
+import PracticalSection from './components/PracticalSection';
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState({
@@ -16,6 +17,24 @@ function App() {
       school: 'Harvard',
       title: 'MSc Machine Learning',
       date: '2022-2024',
+    },
+  ]);
+  const [practicalList, setPracticalList] = useState([
+    {
+      id: 1,
+      companyName: 'IBM',
+      positionTitle: 'Assistant',
+      responsibilities: 'coding',
+      dateFrom: '2024',
+      dateTo: '2025',
+    },
+    {
+      id: 2,
+      companyName: 'Youtube',
+      positionTitle: 'Back End',
+      responsibilities: 'Server upkeep',
+      dateFrom: '2025',
+      dateTo: '2026',
     },
   ]);
 
@@ -43,6 +62,33 @@ function App() {
     setEducationList(educationList.filter((entry) => entry.id !== id));
   };
 
+  const handlePracticalUpdate = (updatedEntry) => {
+    const updatedList = practicalList.map((entry) => {
+      if (entry.id === updatedEntry.id) {
+        return updatedEntry;
+      }
+      return entry;
+    });
+    setPracticalList(updatedList);
+  };
+
+  const handlePracticalAdd = () => {
+    const newEntry = {
+      id: crypto.randomUUID(),
+      companyName: '',
+      positionTitle: '',
+      responsibilities: '',
+      dateFrom: '',
+      dateTo: '',
+    };
+
+    setPracticalList([...educationList, newEntry]);
+  };
+
+  const handlePracticalDelete = (id) => {
+    setPracticalList(practicalList.filter((entry) => entry.id !== id));
+  };
+
   return (
     <>
       <h1>Project CV Application</h1>
@@ -52,6 +98,12 @@ function App() {
         onUpdate={handleEducationUpdate}
         onAdd={handleEducationAdd}
         onDelete={handleEducationDelete}
+      />
+      <PracticalSection
+        practicalList={practicalList}
+        onUpdate={handlePracticalUpdate}
+        onAdd={handlePracticalAdd}
+        onDelete={handlePracticalDelete}
       />
     </>
   );

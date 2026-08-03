@@ -3,6 +3,8 @@
  *
  * @param {Array}    educationList - Array of education objects { id, school, title, date }
  * @param {Function} onUpdate      - Called with an updated entry object
+ * @param {Function} onAdd         - Creates a new blank entry
+ * @param {Function} onDelete      - Called with the entry's id to remove it
  */
 
 import { useState } from 'react';
