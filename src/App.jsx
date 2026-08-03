@@ -77,29 +77,39 @@ function App() {
   };
 
   return (
-    <>
-      <h1 className='text-3xl font-bold text-blue-500'>
-        Project CV Application
-      </h1>
-      <GeneralInfo data={generalInfo} setGeneralInfo={setGeneralInfo} />
-      <EducationSection
-        educationList={educationList}
-        onUpdate={handleEducationUpdate}
-        onAdd={handleEducationAdd}
-        onDelete={handleEducationDelete}
-      />
-      <ExperienceSection
-        experienceList={experienceList}
-        onUpdate={handleExperienceUpdate}
-        onAdd={handleExperienceAdd}
-        onDelete={handleExperienceDelete}
-      />
-      <CvPreview
-        generalInfo={generalInfo}
-        educationList={educationList}
-        experienceList={experienceList}
-      />
-    </>
+    <div className='flex min-h-screen flex-col bg-gray-900 text-gray-100 lg:h-screen lg:flex-row lg:overflow-hidden'>
+      {/* Editor Panel */}
+      <div className='w-full border-b border-gray-700 p-4 sm:p-6 lg:w-1/2 lg:min-h-0 lg:overflow-y-auto lg:border-b-0 lg:border-r'>
+        <h1 className='mb-6 text-2xl font-bold'>CV Application</h1>
+
+        <GeneralInfo data={generalInfo} setGeneralInfo={setGeneralInfo} />
+
+        <EducationSection
+          educationList={educationList}
+          onUpdate={handleEducationUpdate}
+          onAdd={handleEducationAdd}
+          onDelete={handleEducationDelete}
+        />
+
+        <ExperienceSection
+          experienceList={experienceList}
+          onUpdate={handleExperienceUpdate}
+          onAdd={handleExperienceAdd}
+          onDelete={handleExperienceDelete}
+        />
+      </div>
+
+      {/* Preview Panel */}
+      <div className='flex w-full justify-center p-4 sm:p-6 lg:w-1/2 lg:min-h-0 lg:overflow-y-auto'>
+        <div className='w-full max-w-3xl'>
+          <CvPreview
+            generalInfo={generalInfo}
+            educationList={educationList}
+            experienceList={experienceList}
+          />
+        </div>
+      </div>
+    </div>
   );
 }
 
