@@ -2,42 +2,24 @@ import './App.css';
 import { useState } from 'react';
 import GeneralInfo from './components/GeneralInfo';
 import EducationSection from './components/EducationSection';
-import PracticalSection from './components/PracticalSection';
+import ExperienceSection from './components/ExperienceSection';
+
+/**
+ * Root component. Owns all CV state:
+ *   - generalInfo
+ *   - educationList
+ *   - experienceList
+ */
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState({
-    name: 'John Doe',
-    email: 'john@example.com',
-    phone: '123-456-7890',
+    name: '',
+    email: '',
+    phone: '',
+    location: '',
   });
-  const [educationList, setEducationList] = useState([
-    { id: 1, school: 'MIT', title: 'BSc Computer Science', date: '2018-2022' },
-    {
-      id: 2,
-      school: 'Harvard',
-      title: 'MSc Machine Learning',
-      date: '2022-2024',
-    },
-  ]);
-  const [practicalList, setPracticalList] = useState([
-    {
-      id: 1,
-      companyName: 'IBM',
-      positionTitle: 'Assistant',
-      responsibilities: 'coding',
-      dateFrom: '2024',
-      dateTo: '2025',
-    },
-    {
-      id: 2,
-      companyName: 'Youtube',
-      positionTitle: 'Back End',
-      responsibilities: 'Server upkeep',
-      dateFrom: '2025',
-      dateTo: '2026',
-    },
-  ]);
-  console.log('App render - practicalList:', practicalList);
+  const [educationList, setEducationList] = useState([]);
+  const [experienceList, setExperienceList] = useState([]);
 
   const handleEducationUpdate = (updatedEntry) => {
     const updatedList = educationList.map((entry) => {
@@ -54,7 +36,9 @@ function App() {
       id: crypto.randomUUID(),
       school: '',
       title: '',
-      date: '',
+      location: '',
+      dateFrom: '',
+      dateTo: '',
     };
     setEducationList([...educationList, newEntry]);
   };
@@ -63,31 +47,32 @@ function App() {
     setEducationList(educationList.filter((entry) => entry.id !== id));
   };
 
-  const handlePracticalUpdate = (updatedEntry) => {
-    const updatedList = practicalList.map((entry) => {
+  const handleExperienceUpdate = (updatedEntry) => {
+    const updatedList = experienceList.map((entry) => {
       if (entry.id === updatedEntry.id) {
         return updatedEntry;
       }
       return entry;
     });
-    setPracticalList(updatedList);
+    setExperienceList(updatedList);
   };
 
-  const handlePracticalAdd = () => {
+  const handleExperienceAdd = () => {
     const newEntry = {
       id: crypto.randomUUID(),
       companyName: '',
       positionTitle: '',
-      responsibilities: '',
+      location: '',
+      description: '',
       dateFrom: '',
       dateTo: '',
     };
 
-    setPracticalList([...practicalList, newEntry]);
+    setExperienceList([...experienceList, newEntry]);
   };
 
-  const handlePracticalDelete = (id) => {
-    setPracticalList(practicalList.filter((entry) => entry.id !== id));
+  const handleExperienceDelete = (id) => {
+    setExperienceList(experienceList.filter((entry) => entry.id !== id));
   };
 
   return (
@@ -100,11 +85,11 @@ function App() {
         onAdd={handleEducationAdd}
         onDelete={handleEducationDelete}
       />
-      <PracticalSection
-        practicalList={practicalList}
-        onUpdate={handlePracticalUpdate}
-        onAdd={handlePracticalAdd}
-        onDelete={handlePracticalDelete}
+      <ExperienceSection
+        experienceList={experienceList}
+        onUpdate={handleExperienceUpdate}
+        onAdd={handleExperienceAdd}
+        onDelete={handleExperienceDelete}
       />
     </>
   );

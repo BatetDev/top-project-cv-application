@@ -1,7 +1,7 @@
 /**
  * Renders a list of EducationItem components.
  *
- * @param {Array}    educationList - Array of education objects { id, school, title, date }
+ * @param {Array}    educationList - Array of education objects { id, school, title, location, dateFrom, dateTo }
  * @param {Function} onUpdate      - Called with an updated entry object
  * @param {Function} onAdd         - Creates a new blank entry
  * @param {Function} onDelete      - Called with the entry's id to remove it
