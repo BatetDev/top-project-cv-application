@@ -37,6 +37,7 @@ function App() {
       dateTo: '2026',
     },
   ]);
+  console.log('App render - practicalList:', practicalList);
 
   const handleEducationUpdate = (updatedEntry) => {
     const updatedList = educationList.map((entry) => {
@@ -82,7 +83,7 @@ function App() {
       dateTo: '',
     };
 
-    setPracticalList([...educationList, newEntry]);
+    setPracticalList([...practicalList, newEntry]);
   };
 
   const handlePracticalDelete = (id) => {
