@@ -3,6 +3,7 @@ import { useState } from 'react';
 import GeneralInfo from './components/GeneralInfo';
 import EducationSection from './components/EducationSection';
 import ExperienceSection from './components/ExperienceSection';
+import CvPreview from './components/CvPreview';
 
 /**
  * Root component. Owns all CV state:
@@ -92,6 +93,11 @@ function App() {
         onUpdate={handleExperienceUpdate}
         onAdd={handleExperienceAdd}
         onDelete={handleExperienceDelete}
+      />
+      <CvPreview
+        generalInfo={generalInfo}
+        educationList={educationList}
+        experienceList={experienceList}
       />
     </>
   );
