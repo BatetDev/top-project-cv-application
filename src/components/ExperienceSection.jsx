@@ -12,7 +12,7 @@ import ExperienceItem from './ExperienceItem';
 function ExperienceSection({ experienceList, onUpdate, onAdd, onDelete }) {
   return (
     <>
-      <h2>Experience Section</h2>
+      <h2 className='text-lg font-semibold mb-3 text-gray-200'>Experience</h2>
       {experienceList.map((entry) => (
         <ExperienceItem
           key={entry.id}
@@ -21,7 +21,12 @@ function ExperienceSection({ experienceList, onUpdate, onAdd, onDelete }) {
           onDelete={onDelete}
         />
       ))}
-      <button onClick={onAdd}>Add Experience</button>
+      <button
+        onClick={onAdd}
+        className='w-full mt-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm rounded transition-colors'
+      >
+        + Add Experience
+      </button>
     </>
   );
 }
