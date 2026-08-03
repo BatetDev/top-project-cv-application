@@ -77,7 +77,9 @@ function App() {
 
   return (
     <>
-      <h1>Project CV Application</h1>
+      <h1 className='text-3xl font-bold text-blue-500'>
+        Project CV Application
+      </h1>
       <GeneralInfo data={generalInfo} setGeneralInfo={setGeneralInfo} />
       <EducationSection
         educationList={educationList}
