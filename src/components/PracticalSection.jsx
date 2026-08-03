@@ -7,7 +7,6 @@
  * @param {Function} onDelete      - Called with the entry's id to remove it
  */
 
-import { useState } from 'react';
 import PracticalItem from './PracticalItem';
 
 function PracticalSection({ practicalList, onUpdate, onAdd, onDelete }) {

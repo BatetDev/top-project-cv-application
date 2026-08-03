@@ -7,7 +7,6 @@
  * @param {Function} onDelete      - Called with the entry's id to remove it
  */
 
-import { useState } from 'react';
 import EducationItem from './EducationItem';
 
 function EducationSection({ educationList, onUpdate, onAdd, onDelete }) {
