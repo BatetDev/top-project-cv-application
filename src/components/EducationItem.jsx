@@ -7,6 +7,7 @@
  */
 import { useState } from 'react';
 import { SquarePen, Trash2, MapPin } from 'lucide-react';
+import { formatDateRange } from '../utils/formatDate';
 
 function EducationItem({ data, onSave, onDelete }) {
   const [isEditing, setIsEditing] = useState(
@@ -108,7 +109,7 @@ function EducationItem({ data, onSave, onDelete }) {
           </div>
         </div>
       ) : (
-        /* --- NEW READ-ONLY LAYOUT --- */
+        /* --- READ-ONLY LAYOUT --- */
         <div className='space-y-1.5'>
           {/* Row 1: School & Dates */}
           <div className='flex flex-wrap justify-between items-baseline gap-x-4 gap-y-1'>
@@ -116,7 +117,7 @@ function EducationItem({ data, onSave, onDelete }) {
               {data.school || 'No school set'}
             </p>
             <p className='text-sm text-gray-400 whitespace-nowrap'>
-              {data.dateFrom || 'Start'} — {data.dateTo || 'End'}
+              {formatDateRange(data.dateFrom, data.dateTo, 'End')}
             </p>
           </div>
 

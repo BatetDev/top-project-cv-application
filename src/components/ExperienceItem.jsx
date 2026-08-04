@@ -7,6 +7,7 @@
  */
 import { useState } from 'react';
 import { SquarePen, Trash2, MapPin } from 'lucide-react';
+import { formatDateRange } from '../utils/formatDate';
 
 function ExperienceItem({ data, onSave, onDelete }) {
   const [isEditing, setIsEditing] = useState(
@@ -135,7 +136,7 @@ function ExperienceItem({ data, onSave, onDelete }) {
                 {data.companyName || 'No company set'}
               </p>
               <p className='text-sm text-gray-400 whitespace-nowrap'>
-                {data.dateFrom || 'Start'} — {data.dateTo || 'Present'}
+                {formatDateRange(data.dateFrom, data.dateTo, 'Present')}
               </p>
             </div>
 
