@@ -7,6 +7,7 @@
  */
 
 import { MapPin, Phone, Mail, GraduationCap, Briefcase } from 'lucide-react';
+import { formatDate } from '../utils/formatDate';
 
 function CvPreview({ generalInfo, educationList, experienceList }) {
   return (
@@ -50,7 +51,7 @@ function CvPreview({ generalInfo, educationList, experienceList }) {
           <div className='flex justify-between items-baseline'>
             <p className='font-semibold'>{entry.school}</p>
             <p className='text-sm text-gray-500'>
-              {entry.dateFrom} — {entry.dateTo}
+              {formatDate(entry.dateFrom)} — {formatDate(entry.dateTo)}
             </p>
           </div>
           <p className='text-gray-600'>{entry.title}</p>
@@ -75,7 +76,7 @@ function CvPreview({ generalInfo, educationList, experienceList }) {
           <div className='flex justify-between items-baseline'>
             <p className='font-semibold'>{entry.companyName}</p>
             <p className='text-sm text-gray-500'>
-              {entry.dateFrom} — {entry.dateTo}
+              {formatDate(entry.dateFrom)} — {formatDate(entry.dateTo)}
             </p>
           </div>
           <p className='text-gray-600'>{entry.positionTitle}</p>
