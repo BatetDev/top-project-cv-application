@@ -8,11 +8,15 @@
  */
 
 import EducationItem from './EducationItem';
+import { GraduationCap } from 'lucide-react';
 
 function EducationSection({ educationList, onUpdate, onAdd, onDelete }) {
   return (
     <>
-      <h2 className='text-lg font-semibold mb-3 text-gray-200'>Education</h2>
+      <h2 className='text-lg font-semibold mb-3 text-gray-200 flex items-center gap-2'>
+        <GraduationCap size={24} />
+        Education
+      </h2>
       {educationList.map((entry) => (
         <EducationItem
           key={entry.id}

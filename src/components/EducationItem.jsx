@@ -7,6 +7,7 @@
  */
 
 import { useState } from 'react';
+import { SquarePen, Trash2 } from 'lucide-react';
 
 function EducationItem({ data, onSave, onDelete }) {
   const [isEditing, setIsEditing] = useState(
@@ -136,14 +137,16 @@ function EducationItem({ data, onSave, onDelete }) {
       <div className='flex gap-2 mt-3'>
         <button
           onClick={handleToggle}
-          className='px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded transition-colors'
+          className='px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded transition-colors flex items-center gap-1.5'
         >
+          <SquarePen size={16} />
           {isEditing ? 'Submit' : 'Edit'}
         </button>
         <button
           onClick={() => onDelete(data.id)}
-          className='px-4 py-1.5 bg-red-600 hover:bg-red-700 text-white text-sm rounded transition-colors'
+          className='px-4 py-1.5 bg-red-600 hover:bg-red-700 text-white text-sm rounded transition-colors flex items-center gap-1.5'
         >
+          <Trash2 size={16} />
           Delete
         </button>
       </div>

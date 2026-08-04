@@ -1,3 +1,13 @@
+/**
+ * Displays a live CV preview using the current application state.
+ *
+ * @param {Object}   generalInfo     - { name, email, phone, location }
+ * @param {Array}    educationList   - Array of education objects { id, school, title, location, dateFrom, dateTo }
+ * @param {Array}    experienceList  - Array of experience objects { id, companyName, positionTitle, location, description, dateFrom, dateTo }
+ */
+
+import { MapPin, Phone, Mail, GraduationCap, Briefcase } from 'lucide-react';
+
 function CvPreview({ generalInfo, educationList, experienceList }) {
   return (
     <div className='bg-white text-gray-900 rounded-lg shadow-2xl p-8 w-full max-w-2xl mx-auto'>
@@ -6,12 +16,28 @@ function CvPreview({ generalInfo, educationList, experienceList }) {
         {generalInfo.name || 'Your Name'}
       </h2>
       <div className='flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm text-gray-600 mb-6'>
-        <p>{generalInfo.email}</p>
-        <p>{generalInfo.phone}</p>
-        <p>{generalInfo.location}</p>
+        {generalInfo.email && (
+          <span className='flex items-center gap-1'>
+            <Mail size={16} />
+            {generalInfo.email}
+          </span>
+        )}
+        {generalInfo.phone && (
+          <span className='flex items-center gap-1'>
+            <Phone size={16} />
+            {generalInfo.phone}
+          </span>
+        )}
+        {generalInfo.location && (
+          <span className='flex items-center gap-1'>
+            <MapPin size={16} />
+            {generalInfo.location}
+          </span>
+        )}
       </div>
       {/* Education */}
-      <h3 className='text-lg font-semibold uppercase tracking-wide text-gray-700 border-b border-gray-200 pb-1 mb-3'>
+      <h3 className='text-lg font-semibold uppercase tracking-wide text-gray-700 border-b border-gray-200 pb-1 mb-3 flex items-center gap-2'>
+        <GraduationCap size={20} />
         Education
       </h3>
       {educationList.length === 0 && (
@@ -35,7 +61,8 @@ function CvPreview({ generalInfo, educationList, experienceList }) {
       ))}
 
       {/* Experience */}
-      <h3 className='text-lg font-semibold uppercase tracking-wide text-gray-700 border-b border-gray-200 pb-1 mb-3'>
+      <h3 className='text-lg font-semibold uppercase tracking-wide text-gray-700 border-b border-gray-200 pb-1 mb-3 flex items-center gap-2'>
+        <Briefcase size={20} />
         Experience
       </h3>
       {experienceList.length === 0 && (

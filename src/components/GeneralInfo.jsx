@@ -6,6 +6,7 @@
  */
 
 import { useState } from 'react';
+import { User, PenSquare } from 'lucide-react';
 
 function GeneralInfo({ data, setGeneralInfo }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -27,8 +28,9 @@ function GeneralInfo({ data, setGeneralInfo }) {
 
   return (
     <section className='mb-6 bg-gray-800 rounded-lg p-4 border border-gray-700'>
-      <h2 className='text-lg font-semibold mb-3 text-gray-200'>
-        General Information
+      <h2 className='text-lg font-semibold mb-3 text-gray-200 flex items-center gap-2'>
+        <User size={24} />
+        Personal Details
       </h2>
 
       {isEditing ? (
@@ -104,8 +106,9 @@ function GeneralInfo({ data, setGeneralInfo }) {
 
       <button
         onClick={handleToggle}
-        className='mt-3 px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded transition-colors'
+        className='mt-3 px-4 py-1.5 flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded transition-colors'
       >
+        <PenSquare size={16} />
         {isEditing ? 'Submit' : 'Edit'}
       </button>
     </section>
