@@ -50,6 +50,7 @@
   align-items: center;
   border-radius: 0.25rem;
   font-size: 0.875rem;
+  font-weight: 500;
   line-height: 1.25rem;
   color: #ffffff;
   transition:
@@ -59,7 +60,7 @@
 }
 
 .btn-primary {
-  background-color: #2563eb; /* blue-600 */
+  background-color: #1e40af; /* blue-800 */
 }
 
 .btn-primary:hover {
@@ -67,7 +68,7 @@
 }
 
 .btn-danger {
-  background-color: #dc2626; /* red-600 */
+  background-color: #991b1b; /* red-800 */
 }
 
 .btn-danger:hover {
@@ -75,7 +76,7 @@
 }
 
 .btn-add {
-  background-color: #16a34a; /* green-600 */
+  background-color: #166534; /* green-800 */
 }
 
 .btn-add:hover {
