@@ -1,0 +1,53 @@
+@media print {
+  @page {
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+    background: #ffffff;
+  }
+
+  .app-shell {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+  }
+
+  .editor-panel,
+  .print-toolbar {
+    display: none !important;
+  }
+
+  .preview-panel {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  .print-content {
+    max-width: none !important;
+    padding-bottom: 0 !important;
+  }
+
+  .cv-paper {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 12mm !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+  }
+
+  .cv-entry {
+    break-inside: avoid;
+  }
+
+  .cv-section-title {
+    break-after: avoid;
+  }
+}

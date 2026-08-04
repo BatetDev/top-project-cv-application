@@ -10,7 +10,7 @@ import { MapPin, Phone, Mail, GraduationCap, Briefcase } from 'lucide-react';
 
 function CvPreview({ generalInfo, educationList, experienceList }) {
   return (
-    <div className='bg-white text-gray-900 rounded-lg shadow-2xl p-8 w-full max-w-2xl mx-auto'>
+    <div className='cv-paper bg-white text-gray-900 rounded-lg shadow-2xl p-8 w-full max-w-2xl mx-auto'>
       {/* Header */}
       <h2 className='text-3xl font-bold text-center border-b-2 border-gray-300 pb-2 mb-4'>
         {generalInfo.name || 'Your Name'}
@@ -36,7 +36,7 @@ function CvPreview({ generalInfo, educationList, experienceList }) {
         )}
       </div>
       {/* Education */}
-      <h3 className='text-lg font-semibold uppercase tracking-wide text-gray-700 border-b border-gray-200 pb-1 mb-3 flex items-center gap-2'>
+      <h3 className='cv-section-title text-lg font-semibold uppercase tracking-wide text-gray-700 border-b border-gray-200 pb-1 mb-3 flex items-center gap-2'>
         <GraduationCap size={20} />
         Education
       </h3>
@@ -46,7 +46,7 @@ function CvPreview({ generalInfo, educationList, experienceList }) {
         </p>
       )}
       {educationList.map((entry) => (
-        <div key={entry.id} className='mb-4'>
+        <div key={entry.id} className='cv-entry mb-4'>
           <div className='flex justify-between items-baseline'>
             <p className='font-semibold'>{entry.school}</p>
             <p className='text-sm text-gray-500'>
@@ -61,7 +61,7 @@ function CvPreview({ generalInfo, educationList, experienceList }) {
       ))}
 
       {/* Experience */}
-      <h3 className='text-lg font-semibold uppercase tracking-wide text-gray-700 border-b border-gray-200 pb-1 mb-3 flex items-center gap-2'>
+      <h3 className='cv-section-title text-lg font-semibold uppercase tracking-wide text-gray-700 border-b border-gray-200 pb-1 mb-3 flex items-center gap-2'>
         <Briefcase size={20} />
         Experience
       </h3>
@@ -71,7 +71,7 @@ function CvPreview({ generalInfo, educationList, experienceList }) {
         </p>
       )}
       {experienceList.map((entry) => (
-        <div key={entry.id} className='mb-4'>
+        <div key={entry.id} className='cv-entry mb-4'>
           <div className='flex justify-between items-baseline'>
             <p className='font-semibold'>{entry.companyName}</p>
             <p className='text-sm text-gray-500'>
