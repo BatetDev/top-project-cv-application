@@ -12,11 +12,12 @@ import { Briefcase } from 'lucide-react';
 
 function ExperienceSection({ experienceList, onUpdate, onAdd, onDelete }) {
   return (
-    <>
+    <section className='mb-6'>
       <h2 className='text-lg font-semibold mb-3 text-gray-200 flex items-center gap-2'>
         <Briefcase size={24} />
         Experience
       </h2>
+
       {experienceList.map((entry) => (
         <ExperienceItem
           key={entry.id}
@@ -25,13 +26,14 @@ function ExperienceSection({ experienceList, onUpdate, onAdd, onDelete }) {
           onDelete={onDelete}
         />
       ))}
+
       <button
         onClick={onAdd}
         className='w-full mt-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm rounded transition-colors'
       >
         + Add Experience
       </button>
-    </>
+    </section>
   );
 }
 

@@ -12,11 +12,12 @@ import { GraduationCap } from 'lucide-react';
 
 function EducationSection({ educationList, onUpdate, onAdd, onDelete }) {
   return (
-    <>
+    <section className='mb-6'>
       <h2 className='text-lg font-semibold mb-3 text-gray-200 flex items-center gap-2'>
         <GraduationCap size={24} />
         Education
       </h2>
+
       {educationList.map((entry) => (
         <EducationItem
           key={entry.id}
@@ -25,13 +26,14 @@ function EducationSection({ educationList, onUpdate, onAdd, onDelete }) {
           onDelete={onDelete}
         />
       ))}
+
       <button
         onClick={onAdd}
         className='w-full mt-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm rounded transition-colors'
       >
         + Add Education
       </button>
-    </>
+    </section>
   );
 }
 
