@@ -79,7 +79,7 @@ function App() {
   return (
     <div className='flex min-h-screen flex-col bg-gray-900 text-gray-100 lg:h-screen lg:flex-row lg:overflow-hidden'>
       {/* Editor Panel */}
-      <div className='w-full border-b border-gray-700 p-4 sm:p-6 lg:w-1/2 lg:min-h-0 lg:overflow-y-auto lg:border-b-0 lg:border-r'>
+      <div className='w-full border-b border-gray-700 p-4 sm:p-6 lg:w-[30%] lg:min-h-0 lg:overflow-y-auto lg:border-b-0 lg:border-r'>
         <h1 className='mb-6 text-2xl font-bold'>CV Application</h1>
 
         <GeneralInfo data={generalInfo} setGeneralInfo={setGeneralInfo} />
@@ -100,8 +100,8 @@ function App() {
       </div>
 
       {/* Preview Panel */}
-      <div className='flex w-full justify-center p-4 sm:p-6 lg:w-1/2 lg:min-h-0 lg:overflow-y-auto'>
-        <div className='w-full max-w-3xl'>
+      <div className='flex w-full items-start justify-center p-4 sm:p-6 lg:w-[70%] lg:min-h-0 lg:overflow-y-auto'>
+        <div className='w-full max-w-3xl pb-10 sm:pb-12 lg:pb-16'>
           <CvPreview
             generalInfo={generalInfo}
             educationList={educationList}

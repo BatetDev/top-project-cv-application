@@ -28,10 +28,21 @@ function GeneralInfo({ data, setGeneralInfo }) {
 
   return (
     <section className='mb-6 bg-gray-800 rounded-lg p-4 border border-gray-700'>
-      <h2 className='text-lg font-semibold mb-3 text-gray-200 flex items-center gap-2'>
-        <User size={24} />
-        Personal Details
-      </h2>
+      {/* Flex container to hold Title on left and Button on right */}
+      <div className='flex items-center justify-between mb-4'>
+        <h2 className='text-lg font-semibold text-gray-200 flex items-center gap-2'>
+          <User size={24} />
+          Personal Details
+        </h2>
+
+        <button
+          onClick={handleToggle}
+          className='px-3 py-1.5 flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded transition-colors'
+        >
+          <PenSquare size={16} />
+          {isEditing ? 'Save' : 'Edit'}
+        </button>
+      </div>
 
       {isEditing ? (
         <div className='space-y-3'>
@@ -49,6 +60,7 @@ function GeneralInfo({ data, setGeneralInfo }) {
               className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
             />
           </div>
+
           <div>
             <label htmlFor='email' className='block text-sm text-gray-400 mb-1'>
               Email
@@ -63,6 +75,7 @@ function GeneralInfo({ data, setGeneralInfo }) {
               className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
             />
           </div>
+
           <div>
             <label htmlFor='phone' className='block text-sm text-gray-400 mb-1'>
               Phone
@@ -77,6 +90,7 @@ function GeneralInfo({ data, setGeneralInfo }) {
               className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
             />
           </div>
+
           <div>
             <label
               htmlFor='location'
@@ -96,21 +110,38 @@ function GeneralInfo({ data, setGeneralInfo }) {
           </div>
         </div>
       ) : (
-        <div className='text-gray-400 text-sm space-y-1'>
-          <p>{data.name || 'No name set'}</p>
-          <p>{data.email || 'No email set'}</p>
-          <p>{data.phone || 'No phone set'}</p>
-          <p>{data.location || 'No location set'}</p>
+        <div className='grid grid-cols-1 gap-x-6 gap-y-4 text-sm sm:grid-cols-2'>
+          <div>
+            <p className='text-xs uppercase tracking-wide text-gray-500'>
+              Name
+            </p>
+            <p className='mt-1 text-gray-200'>{data.name || 'No name set'}</p>
+          </div>
+
+          <div>
+            <p className='text-xs uppercase tracking-wide text-gray-500'>
+              Email
+            </p>
+            <p className='mt-1 text-gray-200'>{data.email || 'No email set'}</p>
+          </div>
+
+          <div>
+            <p className='text-xs uppercase tracking-wide text-gray-500'>
+              Phone
+            </p>
+            <p className='mt-1 text-gray-200'>{data.phone || 'No phone set'}</p>
+          </div>
+
+          <div>
+            <p className='text-xs uppercase tracking-wide text-gray-500'>
+              Location
+            </p>
+            <p className='mt-1 text-gray-200'>
+              {data.location || 'No location set'}
+            </p>
+          </div>
         </div>
       )}
-
-      <button
-        onClick={handleToggle}
-        className='mt-3 px-4 py-1.5 flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded transition-colors'
-      >
-        <PenSquare size={16} />
-        {isEditing ? 'Submit' : 'Edit'}
-      </button>
     </section>
   );
 }

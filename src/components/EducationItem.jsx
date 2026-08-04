@@ -5,9 +5,8 @@
  * @param {Function} onSave - Called with the updated entry on submit
  * @param {Function} onDelete - Called with the entry's id to remove it
  */
-
 import { useState } from 'react';
-import { SquarePen, Trash2 } from 'lucide-react';
+import { SquarePen, Trash2, MapPin } from 'lucide-react';
 
 function EducationItem({ data, onSave, onDelete }) {
   const [isEditing, setIsEditing] = useState(
@@ -88,59 +87,76 @@ function EducationItem({ data, onSave, onDelete }) {
               className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
             />
           </div>
-          <div>
-            <label
-              htmlFor={`dateFrom-edu-${data.id}`}
-              className='block text-sm text-gray-400 mb-1'
-            >
-              Start Date
-            </label>
-            <input
-              type='month'
-              id={`dateFrom-edu-${data.id}`}
-              name='dateFrom'
-              value={formData.dateFrom}
-              onChange={handleChange}
-              className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
-            />
-          </div>
-          <div>
-            <label
-              htmlFor={`dateTo-edu-${data.id}`}
-              className='block text-sm text-gray-400 mb-1'
-            >
-              End Date
-            </label>
-            <input
-              type='month'
-              id={`dateTo-edu-${data.id}`}
-              name='dateTo'
-              value={formData.dateTo}
-              onChange={handleChange}
-              className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
-            />
+          <div className='grid grid-cols-2 gap-3'>
+            <div>
+              <label
+                htmlFor={`dateFrom-edu-${data.id}`}
+                className='block text-sm text-gray-400 mb-1'
+              >
+                Start Date
+              </label>
+              <input
+                type='month'
+                id={`dateFrom-edu-${data.id}`}
+                name='dateFrom'
+                value={formData.dateFrom}
+                onChange={handleChange}
+                className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
+              />
+            </div>
+            <div>
+              <label
+                htmlFor={`dateTo-edu-${data.id}`}
+                className='block text-sm text-gray-400 mb-1'
+              >
+                End Date
+              </label>
+              <input
+                type='month'
+                id={`dateTo-edu-${data.id}`}
+                name='dateTo'
+                value={formData.dateTo}
+                onChange={handleChange}
+                className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
+              />
+            </div>
           </div>
         </div>
       ) : (
-        <div className='text-gray-400 text-sm space-y-0.5'>
-          <p className='text-gray-200 font-medium'>
-            {data.school || 'No school set'}
-          </p>
-          <p>{data.title || 'No title set'}</p>
-          {data.location && <p>{data.location}</p>}
-          <p className='text-gray-500'>
-            {data.dateFrom} — {data.dateTo}
-          </p>
+        /* --- NEW READ-ONLY LAYOUT --- */
+        <div className='space-y-1.5'>
+          {/* Row 1: School & Dates */}
+          <div className='flex flex-wrap justify-between items-baseline gap-x-4 gap-y-1'>
+            <p className='text-base font-semibold text-gray-100'>
+              {data.school || 'No school set'}
+            </p>
+            <p className='text-sm text-gray-400 whitespace-nowrap'>
+              {data.dateFrom || 'Start'} — {data.dateTo || 'End'}
+            </p>
+          </div>
+
+          {/* Row 2: Title & Location */}
+          <div className='flex flex-wrap justify-between items-baseline gap-x-4 gap-y-1 text-sm'>
+            <p className='text-gray-300 italic'>
+              {data.title || 'No title set'}
+            </p>
+            {data.location && (
+              <p className='text-gray-400 flex items-center gap-1'>
+                <MapPin size={14} />
+                {data.location}
+              </p>
+            )}
+          </div>
         </div>
       )}
 
-      <div className='flex gap-2 mt-3'>
+      <div className='flex gap-2 mt-4'>
         <button
           onClick={handleToggle}
           className='px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded transition-colors flex items-center gap-1.5'
         >
           <SquarePen size={16} />
-          {isEditing ? 'Submit' : 'Edit'}
+          {isEditing ? 'Save' : 'Edit'}
         </button>
         <button
           onClick={() => onDelete(data.id)}
