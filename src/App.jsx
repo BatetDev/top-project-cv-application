@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/app.css';
 import { useState } from 'react';
 import GeneralInfo from './components/GeneralInfo';
 import EducationSection from './components/EducationSection';
