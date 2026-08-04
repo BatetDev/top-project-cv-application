@@ -13,15 +13,59 @@ import { Printer, FileText } from 'lucide-react';
  *   - experienceList
  */
 
+const sampleGeneralInfo = {
+  name: 'Alex Johnson',
+  email: 'alex.johnson@example.com',
+  phone: '+1 (555) 123-4567',
+  location: 'San Francisco, CA',
+};
+
+const sampleEducation = [
+  {
+    id: crypto.randomUUID(),
+    school: 'University of California, Berkeley',
+    title: 'BSc Computer Science',
+    location: 'Berkeley, CA',
+    dateFrom: '2016-08',
+    dateTo: '2020-05',
+  },
+  {
+    id: crypto.randomUUID(),
+    school: 'Stanford University',
+    title: 'MSc Software Engineering',
+    location: 'Stanford, CA',
+    dateFrom: '2020-09',
+    dateTo: '2022-06',
+  },
+];
+
+const sampleExperience = [
+  {
+    id: crypto.randomUUID(),
+    companyName: 'Tech Solutions Inc.',
+    positionTitle: 'Frontend Developer',
+    location: 'San Francisco, CA',
+    description:
+      'Built and maintained responsive web applications using React. Collaborated with designers to improve the UI and cut page load times by 30%.',
+    dateFrom: '2022-07',
+    dateTo: '2024-03',
+  },
+  {
+    id: crypto.randomUUID(),
+    companyName: 'Innovate Labs',
+    positionTitle: 'Full Stack Developer',
+    location: 'Remote',
+    description:
+      'Developed REST APIs and integrated third-party services. Mentored junior developers and led code reviews across the team.',
+    dateFrom: '2024-04',
+    dateTo: '',
+  },
+];
+
 function App() {
-  const [generalInfo, setGeneralInfo] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    location: '',
-  });
-  const [educationList, setEducationList] = useState([]);
-  const [experienceList, setExperienceList] = useState([]);
+  const [generalInfo, setGeneralInfo] = useState(sampleGeneralInfo);
+  const [educationList, setEducationList] = useState(sampleEducation);
+  const [experienceList, setExperienceList] = useState(sampleExperience);
 
   const handleEducationUpdate = (updatedEntry) => {
     const updatedList = educationList.map((entry) => {
