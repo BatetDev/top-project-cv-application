@@ -34,14 +34,11 @@ function ExperienceItem({ data, onSave, onDelete }) {
   };
 
   return (
-    <div className='mb-4 bg-gray-800 rounded-lg p-4 border border-gray-700'>
+    <div className='card mb-4'>
       {isEditing ? (
         <div className='space-y-3'>
           <div>
-            <label
-              htmlFor={`company-${data.id}`}
-              className='block text-sm text-gray-400 mb-1'
-            >
+            <label htmlFor={`company-${data.id}`} className='form-label'>
               Company Name
             </label>
             <input
@@ -51,15 +48,12 @@ function ExperienceItem({ data, onSave, onDelete }) {
               value={formData.companyName}
               onChange={handleChange}
               placeholder='Google'
-              className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
+              className='form-input'
             />
           </div>
 
           <div>
-            <label
-              htmlFor={`position-${data.id}`}
-              className='block text-sm text-gray-400 mb-1'
-            >
+            <label htmlFor={`position-${data.id}`} className='form-label'>
               Position Title
             </label>
             <input
@@ -69,15 +63,12 @@ function ExperienceItem({ data, onSave, onDelete }) {
               value={formData.positionTitle}
               onChange={handleChange}
               placeholder='Software Engineer'
-              className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
+              className='form-input'
             />
           </div>
 
           <div>
-            <label
-              htmlFor={`location-exp-${data.id}`}
-              className='block text-sm text-gray-400 mb-1'
-            >
+            <label htmlFor={`location-exp-${data.id}`} className='form-label'>
               Location
             </label>
             <input
@@ -87,15 +78,12 @@ function ExperienceItem({ data, onSave, onDelete }) {
               value={formData.location}
               onChange={handleChange}
               placeholder='Mountain View, CA'
-              className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
+              className='form-input'
             />
           </div>
 
           <div>
-            <label
-              htmlFor={`description-${data.id}`}
-              className='block text-sm text-gray-400 mb-1'
-            >
+            <label htmlFor={`description-${data.id}`} className='form-label'>
               Description
             </label>
             <textarea
@@ -105,16 +93,13 @@ function ExperienceItem({ data, onSave, onDelete }) {
               onChange={handleChange}
               placeholder='Main responsibilities and achievements'
               rows={4}
-              className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500 resize-none'
+              className='form-textarea'
             />
           </div>
 
           <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
             <div>
-              <label
-                htmlFor={`dateFrom-exp-${data.id}`}
-                className='block text-sm text-gray-400 mb-1'
-              >
+              <label htmlFor={`dateFrom-exp-${data.id}`} className='form-label'>
                 Start Date
               </label>
               <input
@@ -123,15 +108,12 @@ function ExperienceItem({ data, onSave, onDelete }) {
                 name='dateFrom'
                 value={formData.dateFrom}
                 onChange={handleChange}
-                className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
+                className='form-input'
               />
             </div>
 
             <div>
-              <label
-                htmlFor={`dateTo-exp-${data.id}`}
-                className='block text-sm text-gray-400 mb-1'
-              >
+              <label htmlFor={`dateTo-exp-${data.id}`} className='form-label'>
                 End Date
               </label>
               <input
@@ -140,7 +122,7 @@ function ExperienceItem({ data, onSave, onDelete }) {
                 name='dateTo'
                 value={formData.dateTo}
                 onChange={handleChange}
-                className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
+                className='form-input'
               />
             </div>
           </div>
@@ -180,17 +162,14 @@ function ExperienceItem({ data, onSave, onDelete }) {
       )}
 
       <div className='flex gap-2 mt-4'>
-        <button
-          onClick={handleToggle}
-          className='px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded transition-colors flex items-center gap-1.5'
-        >
+        <button onClick={handleToggle} className='btn btn-item btn-primary'>
           <SquarePen size={16} />
           {isEditing ? 'Save' : 'Edit'}
         </button>
 
         <button
           onClick={() => onDelete(data.id)}
-          className='px-4 py-1.5 bg-red-600 hover:bg-red-700 text-white text-sm rounded transition-colors flex items-center gap-1.5'
+          className='btn btn-item btn-danger'
         >
           <Trash2 size={16} />
           Delete

@@ -27,18 +27,15 @@ function GeneralInfo({ data, setGeneralInfo }) {
   };
 
   return (
-    <section className='mb-6 bg-gray-800 rounded-lg p-4 border border-gray-700'>
+    <section className='card mb-6'>
       {/* Flex container to hold Title on left and Button on right */}
       <div className='flex items-center justify-between mb-4'>
-        <h2 className='text-lg font-semibold text-gray-200 flex items-center gap-2'>
+        <h2 className='section-title'>
           <User size={24} />
           Personal Details
         </h2>
 
-        <button
-          onClick={handleToggle}
-          className='px-3 py-1.5 flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded transition-colors'
-        >
+        <button onClick={handleToggle} className='btn btn-primary btn-header'>
           <PenSquare size={16} />
           {isEditing ? 'Save' : 'Edit'}
         </button>
@@ -47,7 +44,7 @@ function GeneralInfo({ data, setGeneralInfo }) {
       {isEditing ? (
         <div className='space-y-3'>
           <div>
-            <label htmlFor='name' className='block text-sm text-gray-400 mb-1'>
+            <label htmlFor='name' className='form-label'>
               Name
             </label>
             <input
@@ -57,12 +54,12 @@ function GeneralInfo({ data, setGeneralInfo }) {
               value={formData.name}
               onChange={handleChange}
               placeholder='John Doe'
-              className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
+              className='form-input'
             />
           </div>
 
           <div>
-            <label htmlFor='email' className='block text-sm text-gray-400 mb-1'>
+            <label htmlFor='email' className='form-label'>
               Email
             </label>
             <input
@@ -72,12 +69,12 @@ function GeneralInfo({ data, setGeneralInfo }) {
               value={formData.email}
               onChange={handleChange}
               placeholder='john@example.com'
-              className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
+              className='form-input'
             />
           </div>
 
           <div>
-            <label htmlFor='phone' className='block text-sm text-gray-400 mb-1'>
+            <label htmlFor='phone' className='form-label'>
               Phone
             </label>
             <input
@@ -87,15 +84,12 @@ function GeneralInfo({ data, setGeneralInfo }) {
               value={formData.phone}
               onChange={handleChange}
               placeholder='123-456-7890'
-              className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
+              className='form-input'
             />
           </div>
 
           <div>
-            <label
-              htmlFor='location'
-              className='block text-sm text-gray-400 mb-1'
-            >
+            <label htmlFor='location' className='form-label'>
               Location
             </label>
             <input
@@ -105,40 +99,30 @@ function GeneralInfo({ data, setGeneralInfo }) {
               value={formData.location}
               onChange={handleChange}
               placeholder='New York, NY'
-              className='w-full bg-gray-700 text-gray-100 rounded px-3 py-2 border border-gray-600 focus:outline-none focus:border-blue-500'
+              className='form-input'
             />
           </div>
         </div>
       ) : (
         <div className='grid grid-cols-1 gap-x-6 gap-y-4 text-sm sm:grid-cols-2'>
           <div>
-            <p className='text-xs uppercase tracking-wide text-gray-500'>
-              Name
-            </p>
-            <p className='mt-1 text-gray-200'>{data.name || 'No name set'}</p>
+            <p className='field-label'>Name</p>
+            <p className='field-value'>{data.name || 'No name set'}</p>
           </div>
 
           <div>
-            <p className='text-xs uppercase tracking-wide text-gray-500'>
-              Email
-            </p>
-            <p className='mt-1 text-gray-200'>{data.email || 'No email set'}</p>
+            <p className='field-label'>Email</p>
+            <p className='field-value'>{data.email || 'No email set'}</p>
           </div>
 
           <div>
-            <p className='text-xs uppercase tracking-wide text-gray-500'>
-              Phone
-            </p>
-            <p className='mt-1 text-gray-200'>{data.phone || 'No phone set'}</p>
+            <p className='field-label'>Phone</p>
+            <p className='field-value'>{data.phone || 'No phone set'}</p>
           </div>
 
           <div>
-            <p className='text-xs uppercase tracking-wide text-gray-500'>
-              Location
-            </p>
-            <p className='mt-1 text-gray-200'>
-              {data.location || 'No location set'}
-            </p>
+            <p className='field-label'>Location</p>
+            <p className='field-value'>{data.location || 'No location set'}</p>
           </div>
         </div>
       )}
