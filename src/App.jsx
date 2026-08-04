@@ -4,7 +4,7 @@ import GeneralInfo from './components/GeneralInfo';
 import EducationSection from './components/EducationSection';
 import ExperienceSection from './components/ExperienceSection';
 import CvPreview from './components/CvPreview';
-import { Printer } from 'lucide-react';
+import { Printer, FileText } from 'lucide-react';
 
 /**
  * Root component. Owns all CV state:
@@ -81,7 +81,10 @@ function App() {
     <div className='app-shell flex min-h-screen flex-col bg-gray-900 text-gray-100 lg:h-screen lg:flex-row lg:overflow-hidden'>
       {/* Editor Panel */}
       <div className='editor-panel w-full border-b border-gray-700 p-4 sm:p-6 lg:w-[30%] lg:min-h-0 lg:overflow-y-auto lg:border-b-0 lg:border-r'>
-        <h1 className='mb-6 text-2xl text-center font-bold'>CV Application</h1>
+        <h1 className='mb-6 flex items-center gap-2 text-2xl font-bold'>
+          <FileText size={26} className='text-indigo-300' aria-hidden='true' />
+          CV Application
+        </h1>
 
         <GeneralInfo data={generalInfo} setGeneralInfo={setGeneralInfo} />
 
