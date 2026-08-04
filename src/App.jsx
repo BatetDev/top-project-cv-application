@@ -4,7 +4,7 @@ import GeneralInfo from './components/GeneralInfo';
 import EducationSection from './components/EducationSection';
 import ExperienceSection from './components/ExperienceSection';
 import CvPreview from './components/CvPreview';
-import { Printer, FileText, Eraser } from 'lucide-react';
+import { Printer, FileText, Eraser, CodeXml } from 'lucide-react';
 
 /**
  * Root component. Owns all CV state:
@@ -139,7 +139,8 @@ function App() {
   return (
     <div className='app-shell flex min-h-screen flex-col bg-gray-900 text-gray-100 lg:h-screen lg:flex-row lg:overflow-hidden'>
       {/* Editor Panel */}
-      <div className='editor-panel w-full border-b border-gray-700 p-4 sm:p-6 lg:w-[30%] lg:min-h-0 lg:overflow-y-auto lg:border-b-0 lg:border-r'>
+      <div className='editor-panel flex flex-col w-full border-b border-gray-700 p-4 sm:p-6 lg:w-[30%] lg:min-h-0 lg:overflow-y-auto lg:border-b-0 lg:border-r'>
+        {/* Header */}
         <div className='mb-6 flex items-center justify-between gap-4'>
           <h1 className='flex items-center gap-2 text-2xl font-bold'>
             <FileText
@@ -159,25 +160,41 @@ function App() {
           </button>
         </div>
 
-        <GeneralInfo
-          key={formResetKey}
-          data={generalInfo}
-          setGeneralInfo={setGeneralInfo}
-        />
+        {/* Form Content (flex-1 pushes the footer down) */}
+        <div className='flex-1'>
+          <GeneralInfo
+            key={formResetKey}
+            data={generalInfo}
+            setGeneralInfo={setGeneralInfo}
+          />
 
-        <EducationSection
-          educationList={educationList}
-          onUpdate={handleEducationUpdate}
-          onAdd={handleEducationAdd}
-          onDelete={handleEducationDelete}
-        />
+          <EducationSection
+            educationList={educationList}
+            onUpdate={handleEducationUpdate}
+            onAdd={handleEducationAdd}
+            onDelete={handleEducationDelete}
+          />
 
-        <ExperienceSection
-          experienceList={experienceList}
-          onUpdate={handleExperienceUpdate}
-          onAdd={handleExperienceAdd}
-          onDelete={handleExperienceDelete}
-        />
+          <ExperienceSection
+            experienceList={experienceList}
+            onUpdate={handleExperienceUpdate}
+            onAdd={handleExperienceAdd}
+            onDelete={handleExperienceDelete}
+          />
+        </div>
+
+        {/* Footer */}
+        <footer className='mt-8 border-t border-gray-800 pt-4 text-center text-sm text-emerald-500 print:hidden'>
+          <a
+            href='https://github.com/BatetDev/top-project-cv-application'
+            className='inline-flex items-center justify-center gap-2 transition-colors hover:text-emerald-300'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <span className='font-medium'>BatetDev</span>
+            <CodeXml size={18} />
+          </a>
+        </footer>
       </div>
 
       {/* Preview Panel */}
