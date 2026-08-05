@@ -1,3 +1,4 @@
+/* Print-mode styles: hide the app UI and print only the CV preview. */
 @media print {
   @page {
     margin: 0;
