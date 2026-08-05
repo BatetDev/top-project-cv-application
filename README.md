@@ -15,6 +15,8 @@ Built with:
 
 </div>
 
+![CV Application Screenshot](/src/assets/cv-application.png)
+
 ## 📖 About
 
 A CV builder application where users can enter their personal details, educational background, and practical experience, while seeing a live preview of the resulting CV.
