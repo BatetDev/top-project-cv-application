@@ -198,7 +198,7 @@ function App() {
       </div>
 
       {/* Preview Panel */}
-      <div className='preview-panel flex w-full items-start justify-center p-4 sm:p-6 lg:w-[70%] lg:min-h-0 lg:overflow-y-auto'>
+      <main className='preview-panel flex w-full items-start justify-center p-4 sm:p-6 lg:w-[70%] lg:min-h-0 lg:overflow-y-auto'>
         <div className='print-content w-full max-w-3xl pb-10 sm:pb-12 lg:pb-16'>
           <div className='print-toolbar mb-4 flex justify-end'>
             <button
@@ -216,7 +216,7 @@ function App() {
             experienceList={experienceList}
           />
         </div>
-      </div>
+      </main>
     </div>
   );
 }
