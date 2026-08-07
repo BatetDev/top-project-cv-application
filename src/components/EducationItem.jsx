@@ -116,7 +116,7 @@ function EducationItem({ data, onSave, onDelete }) {
             <p className='text-base font-semibold text-gray-100'>
               {data.school || 'No school set'}
             </p>
-            <p className='text-sm text-gray-400 whitespace-nowrap'>
+            <p className='text-sm text-gray-300 whitespace-nowrap'>
               {formatDateRange(data.dateFrom, data.dateTo, 'End')}
             </p>
           </div>
@@ -127,7 +127,7 @@ function EducationItem({ data, onSave, onDelete }) {
               {data.title || 'No title set'}
             </p>
             {data.location && (
-              <p className='text-gray-400 flex items-center gap-1'>
+              <p className='text-gray-300 flex items-center gap-1'>
                 <MapPin size={14} />
                 {data.location}
               </p>

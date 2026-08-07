@@ -135,18 +135,18 @@ function ExperienceItem({ data, onSave, onDelete }) {
               <p className='text-base font-semibold text-gray-100'>
                 {data.companyName || 'No company set'}
               </p>
-              <p className='text-sm text-gray-400 whitespace-nowrap'>
+              <p className='text-sm text-gray-300 whitespace-nowrap'>
                 {formatDateRange(data.dateFrom, data.dateTo, 'Present')}
               </p>
             </div>
 
             <div className='flex flex-wrap justify-between items-baseline gap-x-4 gap-y-1 text-sm'>
-              <p className='text-gray-300 italic'>
+              <p className='text-gray-200 italic'>
                 {data.positionTitle || 'No position set'}
               </p>
 
               {data.location && (
-                <p className='text-gray-400 flex items-center gap-1'>
+                <p className='text-gray-300 flex items-center gap-1'>
                   <MapPin size={14} />
                   {data.location}
                 </p>
@@ -155,7 +155,7 @@ function ExperienceItem({ data, onSave, onDelete }) {
           </div>
 
           {data.description && (
-            <p className='text-sm text-gray-400 leading-relaxed whitespace-pre-line'>
+            <p className='text-sm text-gray-300 leading-relaxed whitespace-pre-line'>
               {data.description}
             </p>
           )}

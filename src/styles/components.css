@@ -22,7 +22,7 @@
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #9ca3af; /* gray-400 */
+  color: #e5e7eb; /* gray-200 */
 }
 
 .form-input,
@@ -104,7 +104,7 @@
   line-height: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.025em;
-  color: #6b7280; /* gray-500 */
+  color: #d1d5db; /* gray-300 */
 }
 
 .field-value {
